@@ -12,6 +12,13 @@ let gameOver = ref(true),
     playerOneScore = ref(0),
     playerTwoScore = ref(0)
 
+async function getDeck() {
+  gameOver.value = false;
+  if(checkId.value == null) {
+    //create a new deck
+    const { data } = await axios.get("https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
+  }
+}
 </script>
 
 <template>
