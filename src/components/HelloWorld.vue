@@ -20,7 +20,6 @@ async function getDeck() {
       "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
     );
     deckId.value = data.deck_id
-    console.log(data)
   };
 };
 
@@ -28,7 +27,12 @@ async function getCards() {
   const { data } = await axios.get(
       "https://www.deckofcardsapi.com/api/deck/" + deckId.value + "/draw/?count=2"
   );
-  console.log(data);
+
+  const remaining = data.cards.remaining;
+  const { cards } = data;
+  cardOne.value = cards[0];
+  cardTwo.value = cards[1];
+  console.log(cardOne.value.images.png)
 };
 
 getDeck();
@@ -38,7 +42,12 @@ getDeck();
 <template>
     <h1 class="green">{{ msg }}</h1>
     <div id="game"></div>
-    <div id="playerOne"></div>
+    <div id="playerOne">
+      <h4>Player One</h4>
+      <div class="card">
+        <img :src="cardOne?.images?.png" alt="">
+      </div>
+    </div>
     <div id="playerTwo"></div>
     <button @click="getCards()">DrawCards</button>
 </template>
@@ -49,6 +58,14 @@ h1 {
   font-size: 2.6rem;
   position: relative;
   top: -10px;
+  color: whitesmoke;
+}
+
+h4 {
+  color: whitesmoke;
+}
+
+.card {
   color: whitesmoke;
 }
 </style>
