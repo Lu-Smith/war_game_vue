@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import FooterComponent from './components/FooterComponent.vue';
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-      <div className="App">
+      <div class="App">
             <HelloWorld msg="War Game" />
+            <FooterComponent />
       </div>  
 </template>
 
 <style>
-.App {
-      background-color: rgb(64, 62, 62);
-}
+
 </style>
