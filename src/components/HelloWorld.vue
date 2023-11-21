@@ -8,17 +8,24 @@ defineProps<{
 let gameOver = ref(true), 
     cardOne = ref({}), 
     cardTwo = ref({}), 
-    checkId = ref(null),
+    deckId = ref(null),
     playerOneScore = ref(0),
     playerTwoScore = ref(0)
 
 async function getDeck() {
   gameOver.value = false;
-  if(checkId.value == null) {
+  if(deckId.value == null) {
     //create a new deck
-    const { data } = await axios.get("https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
-  }
+    const { data } = await axios.get(
+      "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
+      );
+    deckId.value = data.deckId
+    console.log(data)
+  };
+
 }
+
+getDeck();
 </script>
 
 <template>
