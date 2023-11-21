@@ -6,6 +6,9 @@ defineProps<{
 
 <template>
     <h1 class="green">{{ msg }}</h1>
+    <div id="game"></div>
+    <div id="playerOne"></div>
+    <div id="playerTwo"></div>
 </template>
 
 <style scoped>
