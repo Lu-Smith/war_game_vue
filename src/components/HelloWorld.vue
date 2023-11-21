@@ -19,18 +19,20 @@ async function getDeck() {
     const { data } = await axios.get(
       "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
     );
-    deckId.value = data.deckId
+    deckId.value = data.deck_id
     console.log(data)
   };
-}
+};
+
 async function getCards() {
   const { data } = await axios.get(
       "https://www.deckofcardsapi.com/api/deck/" + deckId.value + "/draw/?count=2"
   );
-}
+  console.log(data);
+};
 
 getDeck();
-getCards();
+
 </script>
 
 <template>
@@ -38,6 +40,7 @@ getCards();
     <div id="game"></div>
     <div id="playerOne"></div>
     <div id="playerTwo"></div>
+    <button @click="getCards()">DrawCards</button>
 </template>
 
 <style scoped>
