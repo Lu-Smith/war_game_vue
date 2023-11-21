@@ -18,14 +18,19 @@ async function getDeck() {
     //create a new deck
     const { data } = await axios.get(
       "https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
-      );
+    );
     deckId.value = data.deckId
     console.log(data)
   };
-
+}
+async function getCards() {
+  const { data } = await axios.get(
+      "https://www.deckofcardsapi.com/api/deck/" + deckId.value + "/draw/?count=2"
+  );
 }
 
 getDeck();
+getCards();
 </script>
 
 <template>
