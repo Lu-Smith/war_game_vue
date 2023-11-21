@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import axios from 'axios';
 defineProps<{
   msg: string
-}>()
+}>();
+
+let gameOver = ref(true), 
+    cardOne = ref({}), 
+    cardTwo = ref({}), 
+    checkId = ref(null),
+    playerOneScore = ref(0),
+    playerTwoScore = ref(0)
+
 </script>
 
 <template>
