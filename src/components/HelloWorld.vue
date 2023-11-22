@@ -58,7 +58,7 @@ async function getCards() {
   cardOne.value = cards[0];
   cardTwo.value = cards[1];
 const valueOne = parseInt(translateCards((cardOne.value as any)?.value));
-  const valueTwo = parseInt(translateCards((cardOne.value as any)?.value));
+  const valueTwo = parseInt(translateCards((cardTwo.value as any)?.value));
   if(valueOne > valueTwo) playerOneScore.value += 1;
   if(valueOne < valueTwo) playerTwoScore.value += 1;
 
@@ -87,7 +87,7 @@ const valueOne = parseInt(translateCards((cardOne.value as any)?.value));
       <div id="playerTwo" class="player">
         <h4>Player <span>Two</span></h4>
         <div class="card">
-          <img :src="(cardOne as any)?.images?.png" alt="player two card" v-if="(cardOne as any)?.images">
+          <img :src="(cardTwo as any)?.images?.png" alt="player two card" v-if="(cardTwo as any)?.images">
         </div>
       </div>
       </div>
