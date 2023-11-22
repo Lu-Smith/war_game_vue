@@ -93,14 +93,18 @@ const valueOne = parseInt(translateCards((cardOne.value as any)?.value));
       </div>
       <div id="scoreBoard">
           <button @click="getCards()">Draw Cards</button>
-          <h4>
-            Player <span>One</span>: {{ playerOneScore }}
-            Player <span>Two</span>: {{ playerTwoScore }}
+          <h4 class="scoreBoardPlayers">
+            <div>Player <span>One</span>: {{ playerOneScore }}</div>
+            <div>Player <span>Two</span>: {{ playerTwoScore }}</div>
           </h4>      
       </div>
     </div>
+    <h4 v-if="playerOneScore > playerTwoScore && !gameOver">Player <span>One</span> is winning!</h4>
+    <h4 v-if="playerOneScore < playerTwoScore &&  !gameOver">Player <span>Two</span> is winning!</h4>
+    <h4 v-if="playerOneScore === playerTwoScore &&  !gameOver">Tie!</h4>
     <div v-if="gameOver" class="gameOver">
-      <button @click="getDeck()">Play</button></div>
+      <button @click="getDeck()">Play</button>
+    </div>
     
 </template>
 s
@@ -127,14 +131,21 @@ s
   transition: 200ms all ease-in-out;
 }
 
+.card:hover {
+    transform: scale(0.8);
+}
+
 img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.card:hover {
-    transform: scale(0.8);
+.scoreBoardPlayers {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .gameOver {
