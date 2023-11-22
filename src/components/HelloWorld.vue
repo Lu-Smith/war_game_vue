@@ -52,13 +52,18 @@ async function getCards() {
       "https://www.deckofcardsapi.com/api/deck/" + deckId.value + "/draw/?count=2"
   );
 
-  const remaining = data.cards.remaining;
+  const remaining = data.remaining;
   const { cards } = data;
   cardOne.value = cards[0];
   cardTwo.value = cards[1];
   const valueOne = parseInt(translateCards(cardOne.value.value));
   const valueTwo = parseInt(translateCards(cardTwo.value.value));
-  console.log(valueOne, valueTwo);
+  if(valueOne > valueTwo) playerOneScore.value += 1;
+  if(valueOne < valueTwo) playerTwoScore.value += 1;
+
+  if(remaining === 0) {
+    gameOver.value = true;
+  }
 };
 
 getDeck();
