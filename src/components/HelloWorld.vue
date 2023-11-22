@@ -65,27 +65,32 @@ async function getCards() {
     gameOver.value = true;
   }
 };
-
 getDeck();
-
 </script>
 
 <template>
     <h1 class="green">{{ msg }}</h1>
-    <div id="game"></div>
-    <div id="playerOne">
-      <h4>Player One</h4>
-      <div class="card">
-        <img :src="cardOne?.images?.png" alt="">
+    <div id="game" v-if="!gameOver">
+      <div id="playerOne">
+        <h4>Player One</h4>
+        <div class="card">
+          <img :src="cardOne?.images?.png" alt="">
+        </div>
+      </div>
+      <div id="playerTwo">
+        <h4>Player Two</h4>
+        <div class="card">
+          <img :src="cardTwo?.images?.png" alt="">
+        </div>
+      </div>
+      <div id="scoreBoard">
+          <button @click="getCards()">DrawCards</button>
+          <h4>
+            Player One: {{ playerOneScore }}
+            Player Two: {{ playerTwoScore }}
+          </h4>      
       </div>
     </div>
-    <div id="playerTwo">
-      <h4>Player Two</h4>
-      <div class="card">
-        <img :src="cardTwo?.images?.png" alt="">
-      </div>
-    </div>
-    <button @click="getCards()">DrawCards</button>
 </template>
 
 <style scoped>
