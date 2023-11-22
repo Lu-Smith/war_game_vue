@@ -2,7 +2,10 @@
 </script>
 
 <template>
-    <h3>Footer</h3>
+    <h3>Coded by 
+      <a href="https://www.lunasmithart.com/" target="_blank"> Luna Smith</a>,
+      <a href="https://github.com/Lu-Smith/war_game_vue" target="_blank"> GithHub</a>.
+    </h3>
 </template>
 
 <style scoped>
