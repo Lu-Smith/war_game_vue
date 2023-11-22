@@ -65,6 +65,7 @@ async function getCards() {
     gameOver.value = true;
     playerOneScore.value = 0;
     playerTwoScore.value = 0;
+    deckId.value = null;
   }
 
 };
@@ -88,7 +89,7 @@ async function getCards() {
       </div>
       </div>
       <div id="scoreBoard">
-          <button @click="getCards()">DrawCards</button>
+          <button @click="getCards()">Draw Cards</button>
           <h4>
             Player <span>One</span>: {{ playerOneScore }}
             Player <span>Two</span>: {{ playerTwoScore }}
