@@ -75,13 +75,13 @@ async function getCards() {
     <div id="game" v-if="!gameOver">
       <div class="cardContainer">
         <div id="playerOne" class="player">
-        <h4>Player One</h4>
+        <h4>Player <span>One</span></h4>
         <div class="card">
           <img :src="cardOne?.images?.png" alt="player one card" v-if="cardOne?.images">
         </div>
       </div>
       <div id="playerTwo" class="player">
-        <h4>Player Two</h4>
+        <h4>Player <span>Two</span></h4>
         <div class="card">
           <img :src="cardTwo?.images?.png" alt="player two card" v-if="cardOne?.images">
         </div>
@@ -90,8 +90,8 @@ async function getCards() {
       <div id="scoreBoard">
           <button @click="getCards()">DrawCards</button>
           <h4>
-            Player One: {{ playerOneScore }}
-            Player Two: {{ playerTwoScore }}
+            Player <span>One</span>: {{ playerOneScore }}
+            Player <span>Two</span>: {{ playerTwoScore }}
           </h4>      
       </div>
     </div>
