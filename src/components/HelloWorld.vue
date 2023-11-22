@@ -48,7 +48,12 @@ getDeck();
         <img :src="cardOne?.images?.png" alt="">
       </div>
     </div>
-    <div id="playerTwo"></div>
+    <div id="playerTwo">
+      <h4>Player Two</h4>
+      <div class="card">
+        <img :src="cardTwo?.images?.png" alt="">
+      </div>
+    </div>
     <button @click="getCards()">DrawCards</button>
 </template>
 
