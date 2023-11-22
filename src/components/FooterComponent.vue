@@ -11,8 +11,8 @@
 <style scoped>
 h3 {
   font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 2.6rem;
+  font-size: 1rem;
+  line-height: 2.5rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -20,6 +20,5 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: whitesmoke;
 }
 </style>
