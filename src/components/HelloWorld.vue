@@ -81,13 +81,13 @@ const valueOne = parseInt(translateCards((cardOne.value as any)?.value));
         <div id="playerOne" class="player">
         <h4>Player <span>One</span></h4>
         <div class="card">
-          <img :src="(cardOne as any)?.images?.png" alt="player one card" v-if="cardOne?.images">
+          <img :src="(cardOne as any)?.images?.png" alt="player one card" v-if="(cardOne as any)?.images">
         </div>
       </div>
       <div id="playerTwo" class="player">
         <h4>Player <span>Two</span></h4>
         <div class="card">
-          <img :src="(cardOne as any)?.images?.png" alt="player two card" v-if="cardOne?.images">
+          <img :src="(cardOne as any)?.images?.png" alt="player two card" v-if="(cardOne as any)?.images">
         </div>
       </div>
       </div>
