@@ -6,7 +6,7 @@ defineProps<{
   msg: string
 }>();
 
-function translateCards(value) {
+function translateCards(value:string) {
   switch (value) {
     case "JACK":
       value = "11";
@@ -57,8 +57,8 @@ async function getCards() {
   const { cards } = data;
   cardOne.value = cards[0];
   cardTwo.value = cards[1];
-  const valueOne = parseInt(translateCards(cardOne.value.value));
-  const valueTwo = parseInt(translateCards(cardTwo.value.value));
+const valueOne = parseInt(translateCards((cardOne.value as any)?.value));
+  const valueTwo = parseInt(translateCards((cardOne.value as any)?.value));
   if(valueOne > valueTwo) playerOneScore.value += 1;
   if(valueOne < valueTwo) playerTwoScore.value += 1;
 
@@ -81,13 +81,13 @@ async function getCards() {
         <div id="playerOne" class="player">
         <h4>Player <span>One</span></h4>
         <div class="card">
-          <img :src="cardOne?.images?.png" alt="player one card" v-if="cardOne?.images">
+          <img :src="(cardOne as any)?.images?.png" alt="player one card" v-if="cardOne?.images">
         </div>
       </div>
       <div id="playerTwo" class="player">
         <h4>Player <span>Two</span></h4>
         <div class="card">
-          <img :src="cardTwo?.images?.png" alt="player two card" v-if="cardOne?.images">
+          <img :src="(cardOne as any)?.images?.png" alt="player two card" v-if="cardOne?.images">
         </div>
       </div>
       </div>
