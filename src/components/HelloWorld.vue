@@ -71,19 +71,21 @@ async function getCards() {
 </script>
 
 <template>
-    <h1 class="green">{{ msg }}</h1>
+    <h1>{{ msg }}</h1>
     <div id="game" v-if="!gameOver">
-      <div id="playerOne">
+      <div class="cardContainer">
+        <div id="playerOne" class="player">
         <h4>Player One</h4>
         <div class="card">
-          <img :src="cardOne?.images?.png" alt="">
+          <img :src="cardOne?.images?.png" alt="player one card" v-if="cardOne?.images">
         </div>
       </div>
-      <div id="playerTwo">
+      <div id="playerTwo" class="player">
         <h4>Player Two</h4>
         <div class="card">
-          <img :src="cardTwo?.images?.png" alt="">
+          <img :src="cardTwo?.images?.png" alt="player two card" v-if="cardOne?.images">
         </div>
+      </div>
       </div>
       <div id="scoreBoard">
           <button @click="getCards()">DrawCards</button>
@@ -99,21 +101,31 @@ async function getCards() {
 </template>
 s
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-  color: whitesmoke;
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-h4 {
-  color: whitesmoke;
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-
 .card {
   color: whitesmoke;
+  width: 143px;
+  height: 199px;
+  margin: 0 auto;
+  background-color: aquamarine;
+  border-radius: 10px;
 }
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
 .gameOver {
   color: red;
