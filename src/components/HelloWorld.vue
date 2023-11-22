@@ -34,7 +34,7 @@ let gameOver = ref(true),
     cardTwo = ref({}), 
     deckId = ref(null),
     playerOneScore = ref(0),
-    playerTwoScore = ref(0)
+    playerTwoScore = ref(0);
 
 async function getDeck() {
   gameOver.value = false;
@@ -63,9 +63,11 @@ async function getCards() {
 
   if(remaining === 0) {
     gameOver.value = true;
+    playerOneScore.value = 0;
+    playerTwoScore.value = 0;
   }
+
 };
-getDeck();
 </script>
 
 <template>
@@ -91,8 +93,11 @@ getDeck();
           </h4>      
       </div>
     </div>
+    <div v-if="gameOver" class="gameOver">
+      <button @click="getDeck()">Play</button></div>
+    
 </template>
-
+s
 <style scoped>
 h1 {
   font-weight: 500;
@@ -108,5 +113,9 @@ h4 {
 
 .card {
   color: whitesmoke;
+}
+
+.gameOver {
+  color: red;
 }
 </style>
