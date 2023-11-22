@@ -105,6 +105,7 @@ s
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-bottom: 40px;
 }
 
 .player {
