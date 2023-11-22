@@ -5,6 +5,30 @@ defineProps<{
   msg: string
 }>();
 
+function translareCards(value) {
+  switch (value) {
+    case "JACK":
+      value = "11";
+      break;
+    
+    case "QUEEN":
+      value = "12";
+      break;
+
+    case "KING":
+      value = "13";
+      break;
+
+    case "ACE":
+      value = "14";
+      break;
+
+    default:
+    break;
+  }
+  return value;
+}
+
 let gameOver = ref(true), 
     cardOne = ref({}), 
     cardTwo = ref({}), 
@@ -32,7 +56,6 @@ async function getCards() {
   const { cards } = data;
   cardOne.value = cards[0];
   cardTwo.value = cards[1];
-  console.log(cardOne.value.images.png)
 };
 
 getDeck();
