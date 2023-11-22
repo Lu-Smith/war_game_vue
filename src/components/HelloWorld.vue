@@ -5,7 +5,7 @@ defineProps<{
   msg: string
 }>();
 
-function translareCards(value) {
+function translateCards(value) {
   switch (value) {
     case "JACK":
       value = "11";
@@ -56,6 +56,9 @@ async function getCards() {
   const { cards } = data;
   cardOne.value = cards[0];
   cardTwo.value = cards[1];
+  const valueOne = parseInt(translateCards(cardOne.value.value));
+  const valueTwo = parseInt(translateCards(cardTwo.value.value));
+  console.log(valueOne, valueTwo);
 };
 
 getDeck();
