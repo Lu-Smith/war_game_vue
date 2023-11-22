@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import axios from 'axios';
+import { motion } from "framer-motion";
+
 defineProps<{
   msg: string
 }>();
@@ -72,7 +74,12 @@ async function getCards() {
 </script>
 
 <template>
-    <h1>{{ msg }}</h1>
+    <motion.h1 
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}>
+      {{ msg }}
+    </motion.h1>
     <div id="game" v-if="!gameOver">
       <div class="cardContainer">
         <div id="playerOne" class="player">
