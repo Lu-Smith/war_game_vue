@@ -124,13 +124,18 @@ s
   margin: 0 auto;
   background-color: aquamarine;
   border-radius: 10px;
+  transition: 200ms all ease-in-out;
 }
 
 img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
+}
+
+.card:hover {
+    transform: scale(0.8);
+}
 
 .gameOver {
   color: red;
